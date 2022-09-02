@@ -14,6 +14,7 @@ The followings are the official repos for the models used in the paper:
   * Bigbird-Pegasus: [LongSumm 2021: Session based automatic summarization model for scientific document](https://aclanthology.org/2021.sdp-1.12/)
   * DGCNN: [LongSumm 2021: Session based automatic summarization model for scientific document](https://aclanthology.org/2021.sdp-1.12/)
   * SummaFormer: [Summaformers @ LaySumm 20, LongSumm 20](https://github.com/sayarghoshroy/Summaformers)
+    * Meanwhile, the pretrain models are from [The PyTorch Implementation Of SummaRuNNer](https://github.com/hpzhao/SummaRuNNer)
   * BertSum-Multi: [On Generating Extended Summaries of Long Documents](https://github.com/Georgetown-IR-Lab/ExtendedSumm)
 
 
