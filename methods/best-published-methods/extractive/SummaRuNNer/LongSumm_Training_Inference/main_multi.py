@@ -21,7 +21,7 @@ import gc
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [INFO] %(message)s')
 parser = argparse.ArgumentParser(description='extractive summary')
 # model
-parser.add_argument('-save_dir',type=str,default='../../replication/Summaformers/LongSumm_Training_Inference/fine-tuning-ckpt-multi-train-abs/')
+parser.add_argument('-save_dir',type=str,default='REPLACE-BY-YOUR-PATH/Summaformers/LongSumm_Training_Inference/fine-tuning-ckpt-multi-train-abs/')
 parser.add_argument('-embed_dim',type=int,default=100)
 parser.add_argument('-embed_num',type=int,default=100)
 parser.add_argument('-pos_dim',type=int,default=50)
@@ -36,8 +36,8 @@ parser.add_argument('-lr',type=float,default=1e-3)
 parser.add_argument('-batch_size',type=int,default=32)
 parser.add_argument('-epochs',type=int,default=5)
 parser.add_argument('-seed',type=int,default=1)
-parser.add_argument('-train_dir',type=str,default='../../datasets/dataset/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_train.txt')
-parser.add_argument('-val_dir',type=str,default='../../datasets/dataset/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_eval.txt')
+parser.add_argument('-train_dir',type=str,default='REPLACE-BY-YOUR-PATH/datasets/dataset/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_train.txt')
+parser.add_argument('-val_dir',type=str,default='REPLACE-BY-YOUR-PATH/datasets/dataset/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_eval.txt')
 parser.add_argument('-embedding',type=str,default='/home/caiyang/Documents/glove-6b/glove.6B.100d.txt')
 parser.add_argument('-word2id',type=str,default='word2id_glove_100d.json')
 parser.add_argument('-report_every',type=int,default=50)
@@ -47,10 +47,10 @@ parser.add_argument('-retrain',type=bool,default=False)
 parser.add_argument('-split',type=int)
 
 # test
-parser.add_argument('-load_dir',type=str,default='../../replication/Summaformers/LongSumm_Training_Inference/fine-tuning-checkpoints/RNN_RNN_seed_1.pt')
-parser.add_argument('-test_dir',type=str,default='../../datasets/dataset/SummaFormer/extractive/LongSumm_extractive_withlabels_test.txt')
-parser.add_argument('-ref',type=str,default='../../replication/Summaformers/outputs/extractive/ref')
-parser.add_argument('-hyp',type=str,default='../../replication/Summaformers/outputs/extractive/hyp')
+parser.add_argument('-load_dir',type=str,default='REPLACE-BY-YOUR-PATH/Summaformers/LongSumm_Training_Inference/fine-tuning-checkpoints/RNN_RNN_seed_1.pt')
+parser.add_argument('-test_dir',type=str,default='REPLACE-BY-YOUR-PATH/datasets/dataset/SummaFormer/extractive/LongSumm_extractive_withlabels_test.txt')
+parser.add_argument('-ref',type=str,default='REPLACE-BY-YOUR-PATH/Summaformers/outputs/extractive/ref')
+parser.add_argument('-hyp',type=str,default='REPLACE-BY-YOUR-PATH/Summaformers/outputs/extractive/hyp')
 parser.add_argument('-filename',type=str,default='x.txt') # TextFile to be summarized
 parser.add_argument('-foldername' ,type=str,default='def_folder')
 parser.add_argument('-topk',type=int,default=15)
@@ -373,18 +373,18 @@ if __name__=='__main__':
         args.batch_size = 2
         args.pos_num = 400
 
-        args.train_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_train.txt"
-        args.val_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_eval.txt"
+        args.train_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_train.txt"
+        args.val_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_eval.txt"
 
-        args.test_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abstractive/LongSumm_abstractive_withlabels_test.txt"
+        args.test_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abstractive/LongSumm_abstractive_withlabels_test.txt"
 
-        args.ref = f"../../leaderboard_splits/split_{idx}/baseline/SummaFormer_train_on_abs/"
-        args.hyp = f"../../leaderboard_splits/split_{idx}/baseline/SummaFormer_train_on_abs/"
+        args.ref = f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{idx}/baseline/SummaFormer_train_on_abs/"
+        args.hyp = f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{idx}/baseline/SummaFormer_train_on_abs/"
 
         if not os.path.exists(args.ref):
             os.mkdir(args.ref)
 
-        args.load_dir = f"../../replication/Summaformers/LongSumm_Training_Inference/fine-tuning-ckpt-multi-train-abs/RNN_RNN_seed_1_split_{idx}.pt"
+        args.load_dir = f"REPLACE-BY-YOUR-PATH/Summaformers/LongSumm_Training_Inference/fine-tuning-ckpt-multi-train-abs/RNN_RNN_seed_1_split_{idx}.pt"
 
         args.split = idx
 

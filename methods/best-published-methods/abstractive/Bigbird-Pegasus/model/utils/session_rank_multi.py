@@ -201,11 +201,11 @@ if __name__ == '__main__':
         description='Given URL of a paper, this script download the PDFs of the paper'
     )
 
-    # python3 utils/session_rank2.py --doc_dir="../../datasets/dataset/LongSumm2021/extractive/avail" --summ_dir="../../datasets/dataset/original/extractive/avail/summary/" --is_extractive
-    # python3 utils/session_rank2.py --doc_dir="../../datasets/dataset/LongSumm2021/abstractive/avail" --summ_dir="../../datasets/dataset/original/abstractive/avail/summary/"
+    # python3 utils/session_rank2.py --doc_dir="REPLACE-BY-YOUR-PATH/datasets/dataset/LongSumm2021/extractive/avail" --summ_dir="REPLACE-BY-YOUR-PATH/datasets/dataset/original/extractive/avail/summary/" --is_extractive
+    # python3 utils/session_rank2.py --doc_dir="REPLACE-BY-YOUR-PATH/datasets/dataset/LongSumm2021/abstractive/avail" --summ_dir="REPLACE-BY-YOUR-PATH/datasets/dataset/original/abstractive/avail/summary/"
 
-    # python3 utils/session_rank2.py --doc_dir="/home/caiyang/Desktop/debugging_data/LongSumm-2021/extractive/avail" --summ_dir="../../datasets/dataset/original/extractive/avail/summary/" --is_extractive
-    # python3 utils/session_rank2.py --doc_dir="/home/caiyang/Desktop/debugging_data/LongSumm-2021/abstractive/avail" --summ_dir="../../datasets/dataset/original/abstractive/avail/summary/"
+    # python3 utils/session_rank2.py --doc_dir="/home/caiyang/Desktop/debugging_data/LongSumm-2021/extractive/avail" --summ_dir="REPLACE-BY-YOUR-PATH/datasets/dataset/original/extractive/avail/summary/" --is_extractive
+    # python3 utils/session_rank2.py --doc_dir="/home/caiyang/Desktop/debugging_data/LongSumm-2021/abstractive/avail" --summ_dir="REPLACE-BY-YOUR-PATH/datasets/dataset/original/abstractive/avail/summary/"
 
     # parser.add_argument('--doc_dir', help='link to the folder that contains the documents')
     # parser.add_argument('--summ_dir', help='link to the folder that contains the summaries')
@@ -215,8 +215,8 @@ if __name__ == '__main__':
 
     for idx in range(10):
 
-        doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive/avail"
-        summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/abstractive/avail/summary/"
+        doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive/avail"
+        summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/abstractive/avail/summary/"
 
         test_doc_path = doc_dir.replace("avail", "test")
         test_summ_path = summ_dir.replace("avail", "test")

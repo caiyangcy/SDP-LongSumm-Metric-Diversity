@@ -300,7 +300,7 @@ def abstractive_labeling(doc, true_summ):
 
 def main(args, idx):
 
-    pretrained_path = '../../replication/Longsumm_code/pretrained/roberta/'
+    pretrained_path = 'REPLACE-BY-YOUR-PATH/Longsumm_code/pretrained/roberta/'
     config_path = os.path.join(pretrained_path, 'config.json')
     
     tokenizer = RobertaTokenizer(vocab_file=pretrained_path + 'vocab.json',
@@ -362,7 +362,7 @@ def main(args, idx):
         with open(f"{savepath}/labels_{data_type}.pickle", 'wb') as handle:
             pickle.dump(labels, handle)
     else:
-        savepath = f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive_test_for_extractive_prediction/"
+        savepath = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive_test_for_extractive_prediction/"
 
         labels = []
 
@@ -408,11 +408,11 @@ if __name__=='__main__':
         description='Given URL of a paper, this script download the PDFs of the paper'
     )
 
-    parser.add_argument('--doc_dir', default="../../datasets/dataset/LongSumm2021/extractive/test", help='link to the folder that contains the documents')
-    parser.add_argument('--summ_dir', default="../../datasets/dataset/original/extractive/test/summary", help='link to the folder that contains the summaries')
+    parser.add_argument('--doc_dir', default="REPLACE-BY-YOUR-PATH/datasets/dataset/LongSumm2021/extractive/test", help='link to the folder that contains the documents')
+    parser.add_argument('--summ_dir', default="REPLACE-BY-YOUR-PATH/datasets/dataset/original/extractive/test/summary", help='link to the folder that contains the summaries')
 
-    # parser.add_argument('--doc_dir', default="../../datasets/dataset/LongSumm2021/abstractive/avail", help='link to the folder that contains the documents')
-    # parser.add_argument('--summ_dir', default="../../datasets/dataset/original/abstractive/avail/summary", help='link to the folder that contains the summaries')
+    # parser.add_argument('--doc_dir', default="REPLACE-BY-YOUR-PATH/datasets/dataset/LongSumm2021/abstractive/avail", help='link to the folder that contains the documents')
+    # parser.add_argument('--summ_dir', default="REPLACE-BY-YOUR-PATH/datasets/dataset/original/abstractive/avail/summary", help='link to the folder that contains the summaries')
     parser.add_argument('--is_extractive', default=True, type=bool) 
 
     args = parser.parse_args()
@@ -422,21 +422,21 @@ if __name__=='__main__':
         print(f' ----- {idx} ----- ')
 
         args.is_extractive = False
-        args.doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive/avail"
-        args.summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/abstractive/avail/summary/"
+        args.doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive/avail"
+        args.summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/abstractive/avail/summary/"
         main(args, idx)  
 
         args.is_extractive = False
-        args.doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive/test"
-        args.summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/abstractive/test/summary/"
+        args.doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive/test"
+        args.summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/abstractive/test/summary/"
         main(args, idx)  
 
         # args.is_extractive = True
-        # args.doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/avail"
-        # args.summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/extractive/avail/summary"
+        # args.doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/avail"
+        # args.summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/extractive/avail/summary"
         # main(args, idx)  
 
         # args.is_extractive = True
-        # args.doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/test"
-        # args.summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/extractive/test/summary"
+        # args.doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/test"
+        # args.summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/extractive/test/summary"
         # main(args, idx)  

@@ -19,7 +19,7 @@ tf.random.set_seed(seed)
 os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
 
 
-sys.path.append('../../replication/Longsumm_code/')
+sys.path.append('REPLACE-BY-YOUR-PATH/Longsumm_code/')
 
 
 from bigbird.core import flags
@@ -48,14 +48,14 @@ FLAGS(sys.argv)
 
 FLAGS.max_encoder_length = 1024
 FLAGS.max_decoder_length = 128
-FLAGS.vocab_model_file = "../../replication/Longsumm_code/bigbird/vocab/pegasus.model"
+FLAGS.vocab_model_file = "REPLACE-BY-YOUR-PATH/Longsumm_code/bigbird/vocab/pegasus.model"
 FLAGS.eval_batch_size = 4
 FLAGS.substitute_newline = "<n>"
 
 
-ckpt_path = "../../replication/Longsumm_code/pretrained/summarization_arxiv_pegasus_model.ckpt-300000"
+ckpt_path = "REPLACE-BY-YOUR-PATH/Longsumm_code/pretrained/summarization_arxiv_pegasus_model.ckpt-300000"
 
-# pred_in = '../../datasets/dataset/LongSumm2021/abstractive/processed/test.json'
+# pred_in = 'REPLACE-BY-YOUR-PATH/datasets/dataset/LongSumm2021/abstractive/processed/test.json'
 
 tokenizer = tft.SentencepieceTokenizer(
         model=tf.io.gfile.GFile(FLAGS.vocab_model_file, "rb").read())
@@ -132,15 +132,15 @@ def main(dataset_curr_idx):
         model = modeling.TransformerModel(transformer_config)
 
 
-    pred_in = f'../../datasets/dataset_multiple_splits/split_{dataset_curr_idx}/LongSumm2021/abstractive/processed/test.json'
+    pred_in = f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{dataset_curr_idx}/LongSumm2021/abstractive/processed/test.json'
     with open(pred_in, 'r', encoding='utf-8') as f:
         dataset = json.load(f)
         truth_test = [d['summary'].strip() for d in dataset]
 
     import pickle
-    # pred_in = f"../../datasets/dataset_multiple_splits/split_{dataset_curr_idx}/LongSumm2021/abstractive/processed/test.pickle"
+    # pred_in = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{dataset_curr_idx}/LongSumm2021/abstractive/processed/test.pickle"
 
-    pred_in = f'../../datasets/dataset_multiple_splits/split_{dataset_curr_idx}/Session/processed-1024/abstractive_test.pickle'
+    pred_in = f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{dataset_curr_idx}/Session/processed-1024/abstractive_test.pickle'
 
     with open(pred_in, 'rb') as f:
         tmp = pickle.load(f)
@@ -284,14 +284,14 @@ def main(dataset_curr_idx):
     print("avg_rouge: ", avg_rouge)
 
 
-    if not os.path.exists(f"../../leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/"):
-        os.mkdir(f"../../leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/")
+    if not os.path.exists(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/"):
+        os.mkdir(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/")
 
 
-    if not os.path.exists(f"../../leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/Bigbird-Pegasus-1024"):
-        os.mkdir(f"../../leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/Bigbird-Pegasus-1024")
+    if not os.path.exists(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/Bigbird-Pegasus-1024"):
+        os.mkdir(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/Bigbird-Pegasus-1024")
 
-    base_path = f"../../leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/Bigbird-Pegasus-1024"
+    base_path = f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{dataset_curr_idx}/baseline/Session_based/Bigbird-Pegasus-1024"
     
     with open(f'{base_path}/system_trunc.txt', 'w') as f:
         pred_test_to_write = "\n".join(all_summaries_trunc)

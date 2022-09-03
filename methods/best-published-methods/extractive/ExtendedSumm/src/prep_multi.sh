@@ -10,7 +10,7 @@ DATA_TYPE=abstractive
 
 for idx in {0..9}
 do
-    BASE_DIR=/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_$idx/ExtendedSumm/
+    BASE_DIR=REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_$idx/ExtendedSumm/
     RAW_PATH=$BASE_DIR/$DATA_TYPE/$DATASET/
     SAVE_JSON=$BASE_DIR/processed/$MODEL/$DATA_TYPE/${DATASET}_jsons
     BERT_DIR=$BASE_DIR/processed/$MODEL/$DATA_TYPE/${DATASET}_bert_files

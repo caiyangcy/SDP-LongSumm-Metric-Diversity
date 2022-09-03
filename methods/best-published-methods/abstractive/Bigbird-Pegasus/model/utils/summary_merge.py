@@ -67,7 +67,7 @@ def self_clip(raw_str: str, r=0.8):
 def summary_merge(d1, d2, out_file, r=0.5, method='recall'):
     """ensemble the output of abstractive model and the extractive model"""
 
-    embedding_path = "../../replication/Longsumm_code/glove.6B.200d.txt"
+    embedding_path = "REPLACE-BY-YOUR-PATH/Longsumm_code/glove.6B.200d.txt"
     emb = gen_embedding(embedding_path)
     res = []
     for k in tqdm(range(len(d1))):
@@ -119,13 +119,13 @@ def join_words(s: str):
 
 if __name__ == "__main__":
 
-    extractive_path = "../../leaderboard/baseline/DGCNN/abstractive_trunc/system_20.txt"
-    abstractive_path = "../../leaderboard/baseline/Bigbird-Pegasus/abstractive/system_80000.txt"
+    extractive_path = "REPLACE-BY-YOUR-PATH/leaderboard/baseline/DGCNN/abstractive_trunc/system_20.txt"
+    abstractive_path = "REPLACE-BY-YOUR-PATH/leaderboard/baseline/Bigbird-Pegasus/abstractive/system_80000.txt"
 
     # re-order the two summaries first, based on the reference set
 
-    dgcnn_ref_path = "../../leaderboard/baseline/DGCNN/abstractive_trunc/reference_20.txt"
-    pegasus_ref_path = "../../leaderboard/baseline/Bigbird-Pegasus/abstractive/reference.txt"
+    dgcnn_ref_path = "REPLACE-BY-YOUR-PATH/leaderboard/baseline/DGCNN/abstractive_trunc/reference_20.txt"
+    pegasus_ref_path = "REPLACE-BY-YOUR-PATH/leaderboard/baseline/Bigbird-Pegasus/abstractive/reference.txt"
 
     with open(dgcnn_ref_path) as f:
         ref_1 = f.readlines()
@@ -154,6 +154,6 @@ if __name__ == "__main__":
     dgcnn_sys = [dgcnn_sys[i] for i in dgcnn_system_reorder]
 
     method = "text_rank"
-    out_file = f"../../leaderboard/baseline/LongSumm_merged/abstractive/system_merged_{method}_ext_first.txt"
+    out_file = f"REPLACE-BY-YOUR-PATH/leaderboard/baseline/LongSumm_merged/abstractive/system_merged_{method}_ext_first.txt"
 
     summary_merge(dgcnn_sys, pegasus_sys, out_file, method=method)

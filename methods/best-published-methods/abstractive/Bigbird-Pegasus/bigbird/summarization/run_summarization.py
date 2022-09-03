@@ -32,7 +32,7 @@ import absl
 from absl import app
 from absl import logging
 
-logging.get_absl_handler().use_absl_log_file('absl_logging', '../../replication/Longsumm_code/logging/') 
+logging.get_absl_handler().use_absl_log_file('absl_logging', 'REPLACE-BY-YOUR-PATH/Longsumm_code/logging/') 
 absl.flags.FLAGS.mark_as_parsed() 
 logging.set_verbosity(logging.INFO)
 
@@ -42,7 +42,7 @@ tf.keras.backend.clear_session()
 import tensorflow_text as tft
 from rouge_score import rouge_scorer
 
-sys.path.append('../../replication/Longsumm_code/')
+sys.path.append('REPLACE-BY-YOUR-PATH/Longsumm_code/')
 
 from bigbird.core import flags
 from bigbird.core import modeling
@@ -54,21 +54,21 @@ tf.keras.backend.clear_session()
 # assert False
 
 # flags.DEFINE_string(
-#     "data_dir", "../../replication/Longsumm_code/dataset/train/",
+#     "data_dir", "REPLACE-BY-YOUR-PATH/Longsumm_code/dataset/train/",
 #     "The input data dir. Should contain the TFRecord files. "
 #     "Can be TF Dataset with prefix tfds://")
 
 flags.DEFINE_string(
-    "data_dir", "../../datasets/dataset/LongSumm2021/abstractive/processed",
+    "data_dir", "REPLACE-BY-YOUR-PATH/datasets/dataset/LongSumm2021/abstractive/processed",
     "The input data dir. Should contain the TFRecord files. "
     "Can be TF Dataset with prefix tfds://")
 
 flags.DEFINE_string(
-    "output_dir", "../../replication/Longsumm_code/output",
+    "output_dir", "REPLACE-BY-YOUR-PATH/Longsumm_code/output",
     "The output directory where the model checkpoints will be written.")
 
 # flags.DEFINE_string(
-#     "vocab_model_file", "../../replication/Longsumm_code/bigbird/vocab/pegasus.model",
+#     "vocab_model_file", "REPLACE-BY-YOUR-PATH/Longsumm_code/bigbird/vocab/pegasus.model",
 #     "The path to the vocab file.")
 
 # flags.DEFINE_string(
@@ -76,7 +76,7 @@ flags.DEFINE_string(
 #     "Initial checkpoint (usually from a pre-trained BigBird model).")
 
 flags.DEFINE_string(
-    "init_checkpoint", "../../replication/Longsumm_code/pretrained/summarization_arxiv_pegasus_model.ckpt-300000",
+    "init_checkpoint", "REPLACE-BY-YOUR-PATH/Longsumm_code/pretrained/summarization_arxiv_pegasus_model.ckpt-300000",
     "Initial checkpoint (usually from a pre-trained BigBird model).")
 
 flags.DEFINE_integer(

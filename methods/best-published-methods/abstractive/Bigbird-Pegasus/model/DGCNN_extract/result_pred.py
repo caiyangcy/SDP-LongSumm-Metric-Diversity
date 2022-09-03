@@ -153,7 +153,7 @@ class Evaluator(tf.keras.callbacks.Callback):
         eva = evaluate(self.model, self.valid_data, self.valid_x, self.threshold + 0.1)
         if  eva > self.best_metric:  # 保存最优
             self.best_metric = eva
-            self.model.save_weights(f'../../replication/Longsumm_code/model/DGCNN_saved_splits/split_{self.idx}/extract_model_{self.fold}.hdf5')
+            self.model.save_weights(f'REPLACE-BY-YOUR-PATH/Longsumm_code/model/DGCNN_saved_splits/split_{self.idx}/extract_model_{self.fold}.hdf5')
             print('eval raise to %s'%eva)
         else:
             print('eval is %s, not raise'%eva)
@@ -196,16 +196,16 @@ def main(idx):
     np.random.seed(seed)
     tf.random.set_seed(seed)
 
-    data_x = np.load(f'../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/docs_roberta_avail.npy')
+    data_x = np.load(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/docs_roberta_avail.npy')
     
     # data_y = np.zeros( (token_x.shape[0], token_x.shape[1], 1)  )
     data_y = np.zeros_like(data_x[..., :1])
 
-    with open(f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/labels_avail.pickle", 'rb') as handle:
+    with open(f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/labels_avail.pickle", 'rb') as handle:
         labels = pickle.load(handle)
 
         
-    with open(f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/data_avail.pickle", 'rb') as handle:
+    with open(f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/data_avail.pickle", 'rb') as handle:
         data = pickle.load(handle)
 
     for i, d in enumerate(labels):
@@ -241,15 +241,15 @@ def main(idx):
     threshold = 0.5
 
     if dataset_to_predict == "extractive":
-        data_x = np.load(f'../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/docs_roberta_test.npy')
+        data_x = np.load(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/docs_roberta_test.npy')
         
-        with open(f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/data_test.pickle", 'rb') as handle:
+        with open(f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/extractive/processed/data_test.pickle", 'rb') as handle:
             data = pickle.load(handle)
 
     elif dataset_to_predict == "abstractive":
-        data_x = np.load(f'../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive_test_for_extractive_prediction/docs_roberta_test.npy')
+        data_x = np.load(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive_test_for_extractive_prediction/docs_roberta_test.npy')
 
-        with open(f"../../datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive_test_for_extractive_prediction/data_test.pickle", 'rb') as handle:
+        with open(f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/LongSumm2021/abstractive_test_for_extractive_prediction/data_test.pickle", 'rb') as handle:
             data = pickle.load(handle)
 
 
@@ -267,7 +267,7 @@ def main(idx):
         K.clear_session()
         model = bulid_extract_model(max_len, input_size, hidden_size)
 
-        model.load_weights(f'../../replication/Longsumm_code/model/DGCNN_saved_splits/split_{idx}/extract_model_{fold}.hdf5')
+        model.load_weights(f'REPLACE-BY-YOUR-PATH/Longsumm_code/model/DGCNN_saved_splits/split_{idx}/extract_model_{fold}.hdf5')
         pred = model.predict(test_x)[:,:,0]
 
         for d, yp in tqdm(zip(test_data, pred), desc='evaluating'):
@@ -294,15 +294,15 @@ def main(idx):
 
     threshold_to_write = int(threshold*100)
 
-    with open(f"../../leaderboard_splits/split_{idx}/baseline/DGCNN/system_{threshold_to_write}.txt", "w") as f:
+    with open(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{idx}/baseline/DGCNN/system_{threshold_to_write}.txt", "w") as f:
         pred_to_write = "\n".join( predictions )
         f.write(  pred_to_write   )
 
-    with open(f"../../leaderboard_splits/split_{idx}/baseline/DGCNN/reference_{threshold_to_write}.txt", "w") as f:
+    with open(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{idx}/baseline/DGCNN/reference_{threshold_to_write}.txt", "w") as f:
         truth_to_write = "\n\n".join( groudtruth )
         f.write(  truth_to_write   )
 
-    with open(f"../../leaderboard_splits/split_{idx}/baseline/DGCNN/system_probs_{threshold_to_write}.txt", "w") as f:
+    with open(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{idx}/baseline/DGCNN/system_probs_{threshold_to_write}.txt", "w") as f:
         probs_to_write = "\n\n".join( str(prob) for prob in probabilies )
         f.write(  probs_to_write   )
 

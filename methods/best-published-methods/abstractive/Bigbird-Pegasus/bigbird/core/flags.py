@@ -16,7 +16,7 @@
 
 import json
 import sys
-sys.path.append('../../replication/Longsumm_code/')
+sys.path.append('REPLACE-BY-YOUR-PATH/Longsumm_code/')
 
 from absl import flags
 from absl import logging

@@ -1,4 +1,4 @@
-train_record_path = "../../datasets/dataset/LongSumm2021/abstractive/processed/eval.tfrecord"
+train_record_path = "REPLACE-BY-YOUR-PATH/datasets/dataset/LongSumm2021/abstractive/processed/eval.tfrecord"
 
 
 import tensorflow as tf 

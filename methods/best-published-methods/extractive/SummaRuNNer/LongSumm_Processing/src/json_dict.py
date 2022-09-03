@@ -9,7 +9,7 @@ def clean(file):
 
 if __name__ == '__main__':
     # files = os.listdir('json/')
-    extractive_json_path = '../../datasets/talksumm/data/json-output/'
+    extractive_json_path = 'REPLACE-BY-YOUR-PATH/datasets/talksumm/data/json-output/'
     files = os.listdir(extractive_json_path)
 
     data = []
@@ -26,5 +26,5 @@ if __name__ == '__main__':
             else:
                 print("{} is bad".format(file))
 
-    with open('../../replication/Summaformers/LongSumm_Processing/processed_data/listofdic_longsummtest_2.json','w+') as f:
+    with open('REPLACE-BY-YOUR-PATH/Summaformers/LongSumm_Processing/processed_data/listofdic_longsummtest_2.json','w+') as f:
         json.dump(data,f,indent=4)

@@ -6,11 +6,11 @@ do
     echo "data idx: ${idx}"
     echo "-----------------"
 
-    BERT_DIR=/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_$idx/ExtendedSumm/processed/Bert-Large/abstractive/
+    BERT_DIR=REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_$idx/ExtendedSumm/processed/Bert-Large/abstractive/
 
-    MODEL_PATH=/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset/ExtendedSumm/model_bert_base/split_$idx/
+    MODEL_PATH=REPLACE-BY-YOUR-PATH/datasets/dataset/ExtendedSumm/model_bert_base/split_$idx/
 
-    CHECKPOINT=/home/caiyang/Documents/CSIRO-Data61-Summer/replication/ExtendedSumm/model_bert_base/split_$idx/BEST_model_best.pt
+    CHECKPOINT=REPLACE-BY-YOUR-PATH/ExtendedSumm/model_bert_base/split_$idx/BEST_model_best.pt
 
     # scibert bert-base bert-large
     # exp_set
@@ -32,7 +32,7 @@ do
                     -pick_top \
                     -min_length 600 \
                     -finetune_bert False \
-                    -result_path_test /home/caiyang/Documents/CSIRO-Data61-Summer/leaderboard_splits/split_$idx/baseline/ExtendedSumm/bert_base/abstractive/ \
+                    -result_path_test REPLACE-BY-YOUR-PATH/leaderboard_splits/split_$idx/baseline/ExtendedSumm/bert_base/abstractive/ \
                     -test_from $CHECKPOINT \
                     -model_name bert \
                     -val_pred_len 30 \

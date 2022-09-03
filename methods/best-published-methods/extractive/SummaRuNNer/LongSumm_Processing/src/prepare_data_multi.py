@@ -115,34 +115,34 @@ def get_datapoints_parallel(num_processes, extractive_doc_dir, extractive_summ_d
         ext_train, ext_val = extractive_updated_data[ : int(len(extractive_updated_data)*0.9) ], extractive_updated_data[ int(len(extractive_updated_data)*0.9): ]
         abs_train, abs_val = abstractive_updated_data[ : int(len(abstractive_updated_data)*0.9) ], abstractive_updated_data[ int(len(abstractive_updated_data)*0.9): ]
 
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_train.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_train.txt','w') as f:
             json.dump(ext_train, f)
 
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_eval.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_avail_eval.txt','w') as f:
             json.dump(ext_val, f)
 
 
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abstractive/LongSumm_abstractive_withlabels_avail_train.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abstractive/LongSumm_abstractive_withlabels_avail_train.txt','w') as f:
             json.dump(abs_train, f)
         
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abstractive/LongSumm_abstractive_withlabels_avail_eval.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abstractive/LongSumm_abstractive_withlabels_avail_eval.txt','w') as f:
             json.dump(abs_val, f)
         
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abs_ext/LongSumm_withlabels_avail_train.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abs_ext/LongSumm_withlabels_avail_train.txt','w') as f:
             json.dump(ext_train+abs_train, f)
 
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abs_ext/LongSumm_withlabels_avail_eval.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abs_ext/LongSumm_withlabels_avail_eval.txt','w') as f:
             json.dump(ext_val+abs_val, f)
 
     else:
 
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_test.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/extractive/LongSumm_extractive_withlabels_test.txt','w') as f:
             json.dump(extractive_updated_data, f)
 
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abstractive/LongSumm_abstractive_withlabels_test.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abstractive/LongSumm_abstractive_withlabels_test.txt','w') as f:
             json.dump(abstractive_updated_data, f)
 
-        with open(f'../../datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abs_ext/LongSumm_withlabels_test.txt','w') as f:
+        with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/SummaFormer/abs_ext/LongSumm_withlabels_test.txt','w') as f:
             json.dump(extractive_updated_data+abstractive_updated_data, f)
         
 
@@ -369,11 +369,11 @@ if __name__ == '__main__':
     for idx in range(10):
         print(f"idx: {idx}")
 
-        extractive_doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/extractive/{data_type}/document"
-        extractive_summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/extractive/{data_type}/summary"
+        extractive_doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/extractive/{data_type}/document"
+        extractive_summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/extractive/{data_type}/summary"
 
-        abstractive_doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/abstractive/{data_type}/document"
-        abstractive_summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/abstractive/{data_type}/summary"
+        abstractive_doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/abstractive/{data_type}/document"
+        abstractive_summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/abstractive/{data_type}/summary"
 
         get_datapoints_parallel(20, extractive_doc_dir, extractive_summ_dir, abstractive_doc_dir, abstractive_summ_dir, data_type, idx)
 
@@ -383,10 +383,10 @@ if __name__ == '__main__':
     for idx in range(10):
         print(f"idx: {idx}")
 
-        extractive_doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/extractive/{data_type}/document"
-        extractive_summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/extractive/{data_type}/summary"
+        extractive_doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/extractive/{data_type}/document"
+        extractive_summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/extractive/{data_type}/summary"
 
-        abstractive_doc_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/abstractive/{data_type}/document"
-        abstractive_summ_dir = f"../../datasets/dataset_multiple_splits/split_{idx}/original/abstractive/{data_type}/summary"
+        abstractive_doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/abstractive/{data_type}/document"
+        abstractive_summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{idx}/original/abstractive/{data_type}/summary"
 
         get_datapoints_parallel(20, extractive_doc_dir, extractive_summ_dir, abstractive_doc_dir, abstractive_summ_dir, data_type, idx)

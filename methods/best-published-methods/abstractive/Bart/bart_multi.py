@@ -310,18 +310,18 @@ def test(test_data, original_summ, tokenizer, model_name, best_path, data_idx):
 
     model_save = model_name.split("/")[-1]
 
-    if not os.path.exists(f"../../leaderboard_splits/split_{data_idx}/baseline/Bart/"):
-        os.mkdir(f"../../leaderboard_splits/split_{data_idx}/baseline/Bart/")
+    if not os.path.exists(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{data_idx}/baseline/Bart/"):
+        os.mkdir(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{data_idx}/baseline/Bart/")
 
-    with open(f"../../leaderboard_splits/split_{data_idx}/baseline/Bart/system_{model_save}.txt", "w") as f:
+    with open(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{data_idx}/baseline/Bart/system_{model_save}.txt", "w") as f:
         pred_to_write = "\n".join( summaries_trunc )
         f.write(pred_to_write)
 
-    with open(f"../../leaderboard_splits/split_{data_idx}/baseline/Bart/system_{model_save}_full.txt", "w") as f:
+    with open(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{data_idx}/baseline/Bart/system_{model_save}_full.txt", "w") as f:
         pred_to_write = "\n".join( summaries_full )
         f.write(pred_to_write)
 
-    with open(f"../../leaderboard_splits/split_{data_idx}/baseline/Bart/reference_{model_save}.txt", "w") as f:
+    with open(f"REPLACE-BY-YOUR-PATH/leaderboard_splits/split_{data_idx}/baseline/Bart/reference_{model_save}.txt", "w") as f:
         truth_to_write = "\n\n".join( original_summ )
         f.write(truth_to_write)
     
@@ -348,13 +348,13 @@ if __name__ == '__main__':
         print(f" ------ idx: {data_idx} ------ ")
         print(f" ------------------------ ")
 
-        avail_source_file = f"../../datasets/dataset_multiple_splits/split_{data_idx}/LongSumm2021/abstractive/avail"
-        avail_target_file = f"../../datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/avail/summary/"
+        avail_source_file = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/LongSumm2021/abstractive/avail"
+        avail_target_file = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/avail/summary/"
 
         test_source_file = avail_source_file.replace("avail", "test")
         test_target_file = avail_target_file.replace("avail", "test")
 
-        base_path = "../../replication/Bart/"
+        base_path = "REPLACE-BY-YOUR-PATH/Bart/"
 
         if os.path.exists(f"{base_path}/multi_tokenized/tokenized_data_{model_save}_split_{data_idx}.pickle"):
             print("---- reading from existing tokenized data ----")

@@ -144,29 +144,29 @@ def get_datapoints_parallel(data_idx, num_processes, extractive_doc_dir, extract
     #     ext_train, ext_val = extractive_updated_data[ : int(len(extractive_updated_data)*0.9) ], extractive_updated_data[ int(len(extractive_updated_data)*0.9): ]
     #     abs_train, abs_val = abstractive_updated_data[ : int(len(abstractive_updated_data)*0.9) ], abstractive_updated_data[ int(len(abstractive_updated_data)*0.9): ]
 
-    #     with open(f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/LongSumm_extractive_withlabels_avail_train.txt','w') as f:
+    #     with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/LongSumm_extractive_withlabels_avail_train.txt','w') as f:
     #         json.dump(ext_train, f)
 
-    #     with open(f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/LongSumm_extractive_withlabels_avail_eval.txt','w') as f:
+    #     with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/LongSumm_extractive_withlabels_avail_eval.txt','w') as f:
     #         json.dump(ext_val, f)
 
 
-    #     with open(f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/LongSumm_abstractive_withlabels_avail_train.txt','w') as f:
+    #     with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/LongSumm_abstractive_withlabels_avail_train.txt','w') as f:
     #         json.dump(abs_train, f)
         
-    #     with open(f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/LongSumm_abstractive_withlabels_avail_eval.txt','w') as f:
+    #     with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/LongSumm_abstractive_withlabels_avail_eval.txt','w') as f:
     #         json.dump(abs_val, f)
         
 
     # else:
 
-    #     with open(f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/LongSumm_extractive_withlabels_test.txt','w') as f:
+    #     with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/LongSumm_extractive_withlabels_test.txt','w') as f:
     #         json.dump(extractive_updated_data, f)
 
-    #     with open(f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/LongSumm_abstractive_withlabels_test.txt','w') as f:
+    #     with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/LongSumm_abstractive_withlabels_test.txt','w') as f:
     #         json.dump(abstractive_updated_data, f)
 
-    #     with open(f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abs_ext/LongSumm_withlabels_test.txt','w') as f:
+    #     with open(f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abs_ext/LongSumm_withlabels_test.txt','w') as f:
     #         json.dump(extractive_updated_data+abstractive_updated_data, f)
         
 
@@ -274,9 +274,9 @@ def update_format_abstractive(data_idx, paper, section_missing=False, data_type=
 
     if data_type != "test":
         usage_type = "val" if is_eval else "train"
-        path = f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/{usage_type}/{doc_id}.json'
+        path = f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/{usage_type}/{doc_id}.json'
     else:
-        path = f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/test/{doc_id}.json'
+        path = f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/abstractive/test/{doc_id}.json'
     with open(path,'w') as f:
         json.dump(extended_summ_format, f)
 
@@ -463,9 +463,9 @@ def update_format_extractive(data_idx, paper, data_type, is_eval):
 
     if data_type != "test":
         usage_type = "val" if is_eval else "train"
-        path = f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/{usage_type}/{doc_id}.json'
+        path = f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/{usage_type}/{doc_id}.json'
     else:
-        path = f'/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/test/{doc_id}.json'
+        path = f'REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/ExtendedSumm/extractive/test/{doc_id}.json'
     with open(path,'w') as f:
         json.dump(extended_summ_format, f)
 
@@ -526,20 +526,20 @@ if __name__ == '__main__':
 
         print(f" ----- data_idx: {data_idx} ----- ")
         # data_type = "avail"
-        # extractive_doc_dir = f"/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/original/extractive/{data_type}/document"
-        # extractive_summ_dir = f"/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/original/extractive/{data_type}/summary"
+        # extractive_doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/extractive/{data_type}/document"
+        # extractive_summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/extractive/{data_type}/summary"
 
-        # abstractive_doc_dir = f"/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/{data_type}/document"
-        # abstractive_summ_dir = f"/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/{data_type}/summary"
+        # abstractive_doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/{data_type}/document"
+        # abstractive_summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/{data_type}/summary"
 
         # get_datapoints_parallel(data_idx, 15, extractive_doc_dir, extractive_summ_dir, abstractive_doc_dir, abstractive_summ_dir, data_type)
 
 
         data_type = "test"  
-        extractive_doc_dir = f"/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/original/extractive/{data_type}/document"
-        extractive_summ_dir = f"/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/original/extractive/{data_type}/summary"
+        extractive_doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/extractive/{data_type}/document"
+        extractive_summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/extractive/{data_type}/summary"
 
-        abstractive_doc_dir = f"/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/{data_type}/document"
-        abstractive_summ_dir = f"/home/caiyang/Documents/CSIRO-Data61-Summer/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/{data_type}/summary"
+        abstractive_doc_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/{data_type}/document"
+        abstractive_summ_dir = f"REPLACE-BY-YOUR-PATH/datasets/dataset_multiple_splits/split_{data_idx}/original/abstractive/{data_type}/summary"
 
         get_datapoints_parallel(data_idx, 15, extractive_doc_dir, extractive_summ_dir, abstractive_doc_dir, abstractive_summ_dir, data_type)
