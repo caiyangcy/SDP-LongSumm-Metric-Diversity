@@ -4,6 +4,19 @@ This repo contains implementation for paper Investigating Metric Diversity for E
 
 *Long document summarization, a challenging summarization scenario, is the focus of the re-cently proposed LongSumm shared task. One of the limitations of this shared task has been its use of a single family of metrics for evaluation (the ROUGE metrics). In contrast, other fields, like text generation, employ multiple metrics. We replicated the LongSumm evalu- ation using multiple test set samples (vs. the single test set of the official shared task) and investigated how different metrics might complement each other in this evaluation framework. We show that under this more rigorous evaluation, (1) some of the key learnings from Longsumm 2020 and 2021 still hold, but the relative ranking of systems changes, and (2) the use of additional metrics reveals additional high-quality summaries missed by ROUGE, and (3) we show that SPICE is a candidate metric for summarization evaluation for LongSumm.*
 
+# Table of Contents
+1. [References][#references]
+2. [LongSumm Dataset](#longSumm-dataset)
+3. [Dataset Partitions](#dataset-partitions)
+4. [Methods](#methods)
+    * [Oracles](#oracles)
+    * [Baseline Text Summarizers](#baseline-text-summarizers)
+    * [Extractive](#extractive)
+    * [Abstractive](#abstractive)
+5. [Evaluation Metrics](#evaluation-metrics)
+6. [SummVIS](#summvis)
+7. [Metric Agreement](#metric-agreement)
+
 
 
 ## References
@@ -18,21 +31,6 @@ The followings are the official repos for the models used in the paper:
 
 
 **The following implementation will not provide all scripts from the repos above. One shall download the repos above then replace corresponding folders/files by our implementation before replication.**
-
-
-
-# Table of Contents
-1. [LongSumm Dataset](#longSumm-dataset)
-2. [Dataset Partitions](#dataset-partitions)
-3. [Methods](#methods)
-    * [Oracles](#oracles)
-    * [Baseline Text Summarizers](#baseline-text-summarizers)
-    * [Extractive](#extractive)
-    * [Abstractive](#abstractive)
-4. [Evaluation Metrics](#evaluation-metrics)
-5. [SummVIS](#summvis)
-6. [Metric Agreement](#metric-agreement)
-
 
 
 
