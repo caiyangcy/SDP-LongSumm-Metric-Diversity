@@ -21,6 +21,21 @@ The followings are the official repos for the models used in the paper:
 
 
 
+# Table of Contents
+1. [LongSumm Dataset](#longSumm-dataset)
+2. [Dataset Partitions](#dataset-partitions)
+3. [Methods](#methods)
+    * [Oracles](#oracles)
+    * [Baseline Text Summarizers](#baseline-text-summarizers)
+    * [Extractive](#extractive)
+    * [Abstractive](#abstractive)
+4. [Evaluation Metrics](#evaluation-metrics)
+5. [SummVIS](#summvis)
+6. [Metric Agreement](#metric-agreement)
+
+
+
+
 ## LongSumm Dataset
 
 Refer to [LongSumm](https://github.com/guyfe/LongSumm) on how to obtain and prepare the dataset. In particular, the [script](https://github.com/sayarghoshroy/Summaformers/blob/main/LongSumm_Processing/src/pdf-json.py) from SummaFormer repo may help with science-parse. The data shall be left in the `datasets/` folder: `datasets/talksumm` and `datasetes/LongSumm`. Our paper focus on abstractive dataset only.
@@ -70,6 +85,7 @@ Under `methods/best-published-methods/abstractive/Bigbird-Pegasus/model/DGCNN_ex
 #### SummaRuNNer
 Under `methods/best-published-methods/extractive/SummaRuNNer/LongSumm_Processing`
   1. Preprocess data: `python3 prepare_data_multi.py`
+
 Under `/home/caiyang/Documents/SDP-codes/SDP-LongSumm-Metric-Diversity/methods/best-published-methods/extractive/SummaRuNNer/LongSumm_Training_Inference`
   2. Training & inference: `python3 main_multi.py`
 
@@ -86,6 +102,7 @@ Under `methods/best-published-methods/extractive/ExtendedSumm/src`
 #### Bigbird-Pegasus
 Under `methods/best-published-methods/abstractive/Bigbird-Pegasus/model/utils`
   1. Preprocess data: `python3 session_rank_multi.py`
+
 Under `methods/best-published-methods/abstractive/Bigbird-Pegasus/bigbird/summarization`
   2. Inference: `python3 predict_multi.py`
 
@@ -102,12 +119,24 @@ Under `methods/best-published-methods/abstractive/Bart`
   * [Microsoft COCO Caption Evaluation](https://github.com/tylin/coco-caption) for SPICE.
   * [BERTScore](https://github.com/Tiiiger/bert_score).
 
+Note 1: Running SPICE evaluation script on long summaries may lead to memory errors. Users are suggested to pass smaller sets of instances to SPICE install all of them at once. A referece script `evaluation/spice_chunk.py` has been provided.
+
+Note 2: Error analysis needs a list of individual metric scores, which by default is not returned by SPICE. Users shall fix this before moving onto metric agreement inspections. A reference script `evaluation/spice_list.py` has been provided.
+
+Note 3: SPICE is originally designed for one machine-generated sentence. In the case of summarization task, adapting SPICE to work with multiple sentences is not a trivial task. One way to do this is to repeat groudtruth summaries by the number of system generated sentences times, and then compare each system sentence with each groudtruth sentence, then aggregating the performance. However, such evaluation takes a very long time to finish. Hence we turn to a second method, i.e. treat system summary and reference summary as a whole and pass them directly to SPICE.
+
+
+We provide two reference scripts for evaluating system generated summaries:
+
+  * `evaluation/eval_script.py`, which runs the evalution metrics above and save them into 10 different csv files.
+  * `evaluation/calc_stats.py`, which reads the performance on different data partitions and calculate the average performance.
+
 
 ## SummVis
 
 The detailed installation of SummVis can be found at the SummVis repo under [Installation](https://github.com/robustness-gym/summvis#installation). If, by any chance, FileNotFoundError or data loading errors pop up, the following minor correction may be able to help (works at the time of 114 commits on 5 Nov 2021).
 
-line 363 in summvis.py: 
+line 363 in `summvis.py`: 
 
 ```
 # Before
@@ -115,3 +144,7 @@ dataset = load_dataset(str(path / filename))
 # After
 dataset = load_dataset(str(path)) 
 ```
+
+## Metric Agreement
+
+We compare the agreement of metrics on their ranking on system generated summaries. In parituclar, for one model, we compare BERTScore, BLEU, ROUGE-L F1, and SPICE on their top/bottom 5 ranked summaries. Note that since the former three metrics (using libraries mentioned the previous section) provide a list of individual scores for each instance, we can use the returned lists directly. Additionaly preprocssing needs to be done for SPICE - first, use `SPICE_list.py` mentioned eariler; second, use `run_spice.py` to save SPICE output. The folder `metric_agreement` provides some helpful scripts. The beginning number of each script represents the step where the script needs to be run.
